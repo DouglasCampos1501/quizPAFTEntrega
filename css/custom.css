@@ -46,6 +46,12 @@
     padding-top: 25%;
 }
 
+@media screen and (max-width: 1366px) {
+    #footHome{
+        padding-top: 10%;
+    }
+}
+
 .playerName{
     padding: 15px 0 15px 20px;
     border-radius: 15px;
