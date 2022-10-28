@@ -181,6 +181,12 @@
     display: inline-block;
 }
 
+@media screen and (max-width: 1366px) {
+    #header{
+        padding: 0px 0 10px 50px;
+    }
+}
+
 #header h1{
     font-size: 60px;
     width: 20%;
