@@ -301,26 +301,6 @@
 }
 
 
-@media (max-width:1024px){
-    .principal{
-        width: 90%;}
-}
-
-@media (max-width:650px){
-    body{
-        background-color: rgb(243, 243, 243);
-    }
-    .principal{
-        width: 90%;}
-        
-    .direita{
-        width: 100%;
-    }
-    .esquerda{
-        display: none;
-    }
-}
-
 
 #noScroll{
     overflow: hidden;

@@ -8,7 +8,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="img/favicon.png">
 </head>
 
 <body>
@@ -21,9 +21,9 @@
             <div class="central">
                 <div id="header">
                     <h1>Quiz<span class="yellowQuiz">Nerd</span></h1>
-                    <p id="clock"></p>
-                    <p id="avatarName" class="avatar_nome hidd"><img src="img/Avatar_Nerd.svg" class="avatar">&nbsp;&nbsp;<span
-                            id="usuario">Nome</span></p>
+                    <p id="clock" class=""></p>
+                    <p id="avatarName" class="avatar_nome hidd"><img src="img/Avatar_Nerd.svg"
+                            class="avatar">&nbsp;&nbsp;<span id="usuario">Nome</span></p>
 
                     <article class='centro' id='instrucoes'>
                         <strong>Bem vindo ao QuizNerd</strong>
@@ -33,8 +33,10 @@
 
             <!--imagem-->
             <div class="esquerda1">
-                <img id="imgQuest" src="img/quest01.png" class="hidd">
-                <img id="nerdFirst" src="img/quest00.png" style="z-index: 3;">
+                <div id="leftSide">
+                    <img id="imgQuest" src="img/quest01.png" class="hidd">
+                    <img id="nerdFirst" src="img/quest00.png" style="z-index: 3;">
+                </div>
             </div>
             <!--questões-->
             <div class="direita1">
@@ -64,6 +66,7 @@
                                     </li>
                                 </ol>
                             </div>
+
                         </article>
 
                         <article class='centro' id='aviso'>

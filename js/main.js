@@ -172,6 +172,7 @@ const questoes = [q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]
 
 let numero = document.querySelector('#numero')
 let total = document.querySelector('#total')
+let relogio = document.querySelector('#clock')
 
 numero.textContent = q1.numQuestao
 
@@ -310,9 +311,6 @@ function verificarSeAcertou(nQuestao, resposta) {
         proxima = numeroDaQuestao + 1
 
         if (proxima > totalDeQuestoes) {
-
-            window.location.href = "result.html";
-
             fimDoJogo()
         } else {
             proximaQuestao(proxima)
@@ -321,8 +319,11 @@ function verificarSeAcertou(nQuestao, resposta) {
     desbloquearAlternativas()
 }
 
+
+
 function fimDoJogo() {
     somAplausos.play()
+    imagem.src = "img/questForte.png";
     instrucoes.textContent = "Fim de Jogo!"
     numQuestao.textContent = ""
 
@@ -331,7 +332,7 @@ function fimDoJogo() {
 
     pergunta.textContent = "Você conseguiu " + pontos + " " + pont
 
-    aviso.textContent = "Você conseguiu " + pontos + " " + pont
+    aviso.textContent = nomePlayer.value + " conseguiu " + pontos + " " + pont
 
     a.textContent = ""
     b.textContent = ""
@@ -345,7 +346,10 @@ function fimDoJogo() {
 
     // OCULTAR O ARTICLE DA QUESTAO
     articleQuestoes.style.display = 'none';
-    
+    relogio.style.display = 'none';
+
+    var pnt1 = document.getElementById("pontuacaoFinal");
+    pnt1.classList.remove("hidd");
 
     setTimeout(function () {
         pontos = 0 // zerar placar
@@ -353,15 +357,18 @@ function fimDoJogo() {
     }, 2000)
 
     localStorage.setItem('resultsGAME', JSON.stringify({
-        name: 'Rafael', 
-        score: 5
+        name: nomePlayer, 
+        score: pontA
     }))
 
-    JSON.parse(localStorage.getItem('resultsGAME'))
+    JSON.parse(localStorage.getItem('resultsGAME'));
+
+
+    
+
 }
 
 mostrar.addEventListener('click', function () {
-
     let usuario = document.querySelector('#usuario');
     usuario.textContent = nomePlayer.value;
 
@@ -381,6 +388,7 @@ mostrar.addEventListener('click', function () {
     elem4.classList.add("hidd");
 });
 
+
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
     setInterval(function () {
@@ -393,7 +401,6 @@ function startTimer(duration, display) {
             timer = duration;
         }
         if (minutes == 0 && seconds == 0) {
-            window.location.href = "result.html";
             fimDoJogo();
         }
     }, 1000);
