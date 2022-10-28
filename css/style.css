@@ -196,6 +196,10 @@
     text-align: center;
 }
 
+#imgQuest, #nerdFirst{
+    width: 100%;
+}
+
 #rightSide{
     width: 100%;
     display: inline-block;
