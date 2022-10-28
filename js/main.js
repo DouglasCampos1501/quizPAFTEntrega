@@ -167,26 +167,54 @@ const q10 = {
 }
 
 // CONSTANTE COM UM ARRAY DE OBJETOS COM TODAS AS QUESTOES
-const questoes = [q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]
+let questoes;
+const questoes0 = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
+const questoes1 = [q2, q4, q6, q8, q10, q1, q3, q5, q7, q9];
+const questoes2 = [q5, q6, q7, q8, q9, q10, q1, q2, q3, q4];
+const questoes3 = [q10, q9, q8, q7, q6, q5, q4, q3, q2, q1];
+const questoes4 = [q1, q3, q5, q7, q9, q2, q4, q6, q8, q10];
 
+const possiveis = [questoes0, questoes1, questoes2, questoes3, questoes4];
+const escolhida = "questoes"+(Math.floor(Math.random() * possiveis.length));
+let primeiraQuestao
+if (escolhida == "questoes0"){
+    questoes = questoes0;
+    primeiraQuestao = questoes[0];
+}
+else if (escolhida == "questoes1"){
+    questoes = questoes1;
+    primeiraQuestao = questoes0[0];
+}
+else if (escolhida == "questoes2"){
+    questoes = questoes2;
+    primeiraQuestao = questoes0[0];
+}
+else if (escolhida == "questoes3"){
+    questoes = questoes3;
+    primeiraQuestao = questoes0[0];
+}
+else {
+    questoes = questoes4;
+    primeiraQuestao = questoes0[0];
+}
 
 let numero = document.querySelector('#numero')
 let total = document.querySelector('#total')
 let relogio = document.querySelector('#clock')
 
-numero.textContent = q1.numQuestao
+numero.textContent = primeiraQuestao.numQuestao
 
 let totalDeQuestoes = (questoes.length) - 1
 
 total.textContent = totalDeQuestoes
 
 // MONTAR A 1a QUESTAO COMPLETA, para iniciar o Quiz
-numQuestao.textContent = q1.numQuestao
-pergunta.textContent = q1.pergunta
-a.textContent = q1.alternativaA
-b.textContent = q1.alternativaB
-c.textContent = q1.alternativaC
-d.textContent = q1.alternativaD
+numQuestao.textContent = primeiraQuestao.numQuestao
+pergunta.textContent = primeiraQuestao.pergunta
+a.textContent = primeiraQuestao.alternativaA
+b.textContent = primeiraQuestao.alternativaB
+c.textContent = primeiraQuestao.alternativaC
+d.textContent = primeiraQuestao.alternativaD
 
 // CONFIGURAR O VALUE INICIAL DA 1a QUESTAO COMPLETA
 a.setAttribute('value', '1A')
@@ -196,18 +224,64 @@ d.setAttribute('value', '1D')
 
 // PARA MONTAR AS PROXIMAS QUESTOES
 function proximaQuestao(nQuestao) {
-    numero.textContent = nQuestao
-    numQuestao.textContent = questoes[nQuestao].numQuestao
-    pergunta.textContent = questoes[nQuestao].pergunta
-    a.textContent = questoes[nQuestao].alternativaA
-    b.textContent = questoes[nQuestao].alternativaB
-    c.textContent = questoes[nQuestao].alternativaC
-    d.textContent = questoes[nQuestao].alternativaD
-    a.setAttribute('value', nQuestao + 'A')
-    b.setAttribute('value', nQuestao + 'B')
-    c.setAttribute('value', nQuestao + 'C')
-    d.setAttribute('value', nQuestao + 'D')
-    imagem.src = questoes[nQuestao].image
+    const ordem = (Math.floor(Math.random() * 4));
+    if (ordem == 0){
+        numero.textContent = nQuestao
+        numQuestao.textContent = questoes[nQuestao].numQuestao
+        pergunta.textContent = questoes[nQuestao].pergunta
+        a.textContent = questoes[nQuestao].alternativaA
+        b.textContent = questoes[nQuestao].alternativaB
+        c.textContent = questoes[nQuestao].alternativaC
+        d.textContent = questoes[nQuestao].alternativaD
+        a.setAttribute('value', nQuestao + 'A')
+        b.setAttribute('value', nQuestao + 'B')
+        c.setAttribute('value', nQuestao + 'C')
+        d.setAttribute('value', nQuestao + 'D')
+        imagem.src = questoes[nQuestao].image
+    }
+    else if (ordem == 1){
+        numero.textContent = nQuestao
+        numQuestao.textContent = questoes[nQuestao].numQuestao
+        pergunta.textContent = questoes[nQuestao].pergunta
+        a.textContent = questoes[nQuestao].alternativaD
+        b.textContent = questoes[nQuestao].alternativaC
+        c.textContent = questoes[nQuestao].alternativaB
+        d.textContent = questoes[nQuestao].alternativaA
+        a.setAttribute('value', nQuestao + 'A')
+        b.setAttribute('value', nQuestao + 'B')
+        c.setAttribute('value', nQuestao + 'C')
+        d.setAttribute('value', nQuestao + 'D')
+        imagem.src = questoes[nQuestao].image
+    }
+    else if (ordem == 2){
+        numero.textContent = nQuestao
+        numQuestao.textContent = questoes[nQuestao].numQuestao
+        pergunta.textContent = questoes[nQuestao].pergunta
+        a.textContent = questoes[nQuestao].alternativaC
+        b.textContent = questoes[nQuestao].alternativaD
+        c.textContent = questoes[nQuestao].alternativaA
+        d.textContent = questoes[nQuestao].alternativaB
+        a.setAttribute('value', nQuestao + 'A')
+        b.setAttribute('value', nQuestao + 'B')
+        c.setAttribute('value', nQuestao + 'C')
+        d.setAttribute('value', nQuestao + 'D')
+        imagem.src = questoes[nQuestao].image
+    }
+    else {
+        numero.textContent = nQuestao
+        numQuestao.textContent = questoes[nQuestao].numQuestao
+        pergunta.textContent = questoes[nQuestao].pergunta
+        a.textContent = questoes[nQuestao].alternativaB
+        b.textContent = questoes[nQuestao].alternativaA
+        c.textContent = questoes[nQuestao].alternativaD
+        d.textContent = questoes[nQuestao].alternativaC
+        a.setAttribute('value', nQuestao + 'A')
+        b.setAttribute('value', nQuestao + 'B')
+        c.setAttribute('value', nQuestao + 'C')
+        d.setAttribute('value', nQuestao + 'D')
+        imagem.src = questoes[nQuestao].image
+    }
+
 }
 
 function bloquearAlternativas() {
@@ -362,9 +436,6 @@ function fimDoJogo() {
     }))
 
     JSON.parse(localStorage.getItem('resultsGAME'));
-
-
-    
 
 }
 
